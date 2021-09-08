@@ -1,4 +1,4 @@
-# Day 01 - Python Piscine
+# Day 01 - Dictionaries and Decorators
 
 ## Trolling is a art
 

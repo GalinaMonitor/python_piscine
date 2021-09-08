@@ -1,4 +1,4 @@
-# Day 02 - Python Piscine
+# Day 02 - Magic methods and OOP
 
 ## Vault 26
 

@@ -1,4 +1,4 @@
-# Day 00 - Python Piscine
+# Day 00 - Work with strings
 
 ## Gumshoe's Gambit
 
