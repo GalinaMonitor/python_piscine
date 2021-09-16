@@ -182,4 +182,5 @@ if __name__ == '__main__':
 		for player2 in players:
 			if player1.name != player2.name and players.index(player1) > players.index(player2):
 				game.play(player1, player2)
+	game.top_3()
 
