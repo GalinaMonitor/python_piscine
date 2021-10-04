@@ -8,7 +8,7 @@ class Key:
 		return (3)
 
 	def __gt__(self, nbr):
-		if nbr == 9000:
+		if nbr <= 9000:
 			return 1
 		else:
 			return 0
@@ -17,10 +17,9 @@ class Key:
 		return ("GeneralTsoKeycard")
 
 key = Key()
-print("len(key) == 			", len(key))
-print("key[404] == 			", key[404])
-print("key > 9000 == 			", key > 9000)
-print("key.passphrase == 		", key.passphrase)
-print("str(key) == 			", str(key))
 
-
+assert len(key) == 1336
+assert key[404] == 3
+assert key > 9000
+assert key.passphrase == "zax2rulez"
+assert str(key) == "GeneralTsoKeycard"

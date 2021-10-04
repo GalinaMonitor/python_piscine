@@ -28,8 +28,8 @@ class Game(object):
 				self.registry[player2.name] += 0
 			state1 = player1.state
 			state2 = player2.state
-			player1.play(state2, match)
-			player2.play(state1, match)
+			player1.update_state(state2, match)
+			player2.update_state(state1, match)
 		player1.reset()
 		player2.reset()
 
@@ -56,7 +56,7 @@ class Cheater(Player):
 		self.state = "cheat"
 		super().__init__("Cheater")
 
-	def play(self, opponent_state, match):
+	def update_state(self, opponent_state, match):
 		pass
 
 	def reset(self):
@@ -69,7 +69,7 @@ class Cooperative(Player):
 		self.state = "cooperate"
 		super().__init__("Cooperative")
 
-	def play(self, opponent_state, match):
+	def update_state(self, opponent_state, match):
 		pass
 
 	def reset(self):
@@ -82,7 +82,7 @@ class Copycat(Player):
 		self.state = "cooperate"
 		super().__init__("Copycat")
 
-	def play(self, opponent_state, match):
+	def update_state(self, opponent_state, match):
 		self.state = opponent_state
 
 	def reset(self):
@@ -97,8 +97,8 @@ class Copykitten(Player):
 		self.let_him_make_mistake = "cooperate"
 		super().__init__("Copykitten")
 
-	def play(self, opponent_state, match):
-		if self.let_him_make_mistake == opponent_state or opponent_state == 'cooperate':
+	def update_state(self, opponent_state, match):
+		if self.let_him_make_mistake == opponent_state:
 			self.state = opponent_state
 		else:
 			self.let_him_make_mistake = opponent_state
@@ -115,7 +115,7 @@ class Grudger(Player):
 		self.permanent = "cooperate"
 		super().__init__("Grudger")
 
-	def play(self, opponent_state, match):
+	def update_state(self, opponent_state, match):
 		if opponent_state == "cheat":
 			self.permanent = opponent_state
 		self.state = self.permanent
@@ -134,7 +134,7 @@ class Detective(Player):
 		self.act_like = "Detective"
 		super().__init__("Detective")
 
-	def play(self, opponent_state, match):
+	def update_state(self, opponent_state, match):
 
 		if self.name == "Detective" and match > 3:
 			if self.act_like == "Copycat":
