@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Evil Corp - Stealing your money every day
+  </title>
+ </head>
+ <body>
+  <h>
+   Mr. Robot,
+   you are hacked!
+  </h>
+  <p style="display: block;">
+   Welcome,
+   <span class="name">
+    <span class="pronoun">
+     Mr.
+    </span>
+    Alderson
+   </span>
+  </p>
+  <form action="/transfer" method="GET" style="display: block;">
+   <label for="from">
+    From:
+   </label>
+   <input id="from" name="from" style="display: block;" type="text"/>
+   <label for="to">
+    To:
+   </label>
+   <input id="to" name="to" style="display: block;" type="text"/>
+   <label for="amount">
+    Amount:
+   </label>
+   <input id="amount" name="amount" style="display: block;" type="text"/>
+   <input type="submit" value="Send"/>
+  </form>
+  <p>
+   Together we can change the world, with
+   <a href="https://mrrobot.fandom.com/wiki/Fsociety">
+    Fsociety
+   </a>
+  </p>
+  <script>
+   hacked = function() {
+            alert('hacked');
+        }
+        window.addEventListener('load',
+          function() {
+            var f = document.querySelector("form");
+            f.setAttribute("onsubmit", "hacked()");
+          },
+          false
+        );
+  </script>
+ </body>
+</html>
