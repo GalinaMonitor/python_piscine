@@ -38,7 +38,7 @@ Fight the system, help the people!
 It was a pretty quiet evening outside, but the work was far from finished inside abandoned arcade. Mobley and Trenton
 were in the middle of a fierce debate on various attack vectors, while Darlene was looking at a pinboard with photos
 of high members of Evil Corp's management. Elliot was sitting at the corner, while as always mumbling something to
-himself. 
+himself.
 
  &mdash; Okay everybody, listen up! - Darlene was loud as always, so even arguing hackers shut up immediately. - Let's
  start with small things. We need to show the people that Evil Corp is not to be trusted with their money.
@@ -50,13 +50,13 @@ himself.
 
  &mdash; I sure do. Look at the 'evilcorp.html' file in a shared folder.
 
- &mdash; Perfect. Remember, you can just run `python3 -m http.server` in a directory with this file to be able to test 
+ &mdash; Perfect. Remember, you can just run `python3 -m http.server` in a directory with this file to be able to test
  our little prank in a browser. Just open http://127.0.0.1:8000/evilcorp.html and you'll see the form yourself. Then
  Elliot...brother, are you even listening?
 
 Elliot rotated his chair to show that he's interested.
 
- &mdash; So, you only have one shot at this. Your script will need to modify an actual HTML file on an Evil Corp's 
+ &mdash; So, you only have one shot at this. Your script will need to modify an actual HTML file on an Evil Corp's
  server. The more people see the message that they are hacked the better.
 
 Trenton immediately showed a script on her screen that had to be injected into a web page:
@@ -66,8 +66,8 @@ Trenton immediately showed a script on her screen that had to be injected into a
         hacked = function() {
             alert('hacked');
         }
-        window.addEventListener('load', 
-          function() { 
+        window.addEventListener('load',
+          function() {
             var f = document.querySelector("form");
             f.setAttribute("onsubmit", "hacked()");
           },
@@ -89,7 +89,7 @@ You need to write a Python script 'exploit.py' that will do several things:
   and name.
 - Fourth, it needs to inject a Trenton's script into a `body` of a page as well. If everything is okay, when
   the 'Send' button is pressed, you should see the word "hacked" appearing in an alert window.
-- Finally, the link at the bottom of a page should now lead to "https://mrrobot.fandom.com/wiki/Fsociety" with 
+- Finally, the link at the bottom of a page should now lead to "https://mrrobot.fandom.com/wiki/Fsociety" with
   an actual name of the company on a page replaced with "Fsociety".
 
 The new HTML file should be named "evilcorp_hacked.html" and placed in the same directory as the source
@@ -98,7 +98,7 @@ The new HTML file should be named "evilcorp_hacked.html" and placed in the same 
 <h2 id="chapter-v" >Chapter V</h2>
 <h3 id="ex01">Exercise 01: Cash Flow</h3>
 
-After a while, Elliot turned his laptop on the table, showing the script. Mobley gave him a thumbs up and 
+After a while, Elliot turned his laptop on the table, showing the script. Mobley gave him a thumbs up and
 Trenton exchanged places with Darlene near the pinboard.
 
  &mdash; Well, this is a nice little distraction, but the actual attack will be happening in a different place.
@@ -124,7 +124,7 @@ Producer needs to generate JSON messages like this:
 }
 ```
 
-and put them as a payload into a Redis pubsub queue. All account numbers ("from" and "to") should 
+and put them as a payload into a Redis pubsub queue. All account numbers ("from" and "to") should
 consist of exactly 10 digits. Additional points can be earned if the code uses builtin `logging`
 module (instead of `print` function) to write produced messages to stdout for manual testing.
 
@@ -133,7 +133,7 @@ Consumer should receive an argument with a list of account numbers like this:
 `~$ python consumer.py -e 7134456234,3476371234`
 
 where `-e` is a parameter receiving a list of bad guys' account numbers. When started, it should read
-messages from a pubsub queue and print them to stdout on one line each. For accounts from the 
+messages from a pubsub queue and print them to stdout on one line each. For accounts from the
 "bad guys' list" if they are specified as a receiver consumer should *switch* sender and receiver for
 the transaction. But this should happend *only* in case "amount" is not negative.
 
@@ -160,8 +160,8 @@ though receiver is a bad guy). Third one wasn't changed because bad guy is a sen
 <h3 id="ex01">Exercise 02: Deploy</h3>
 
  &mdash; Perfecto! - Darlene was enthusiastic. - Now all we need to do is write a deployment script.
- 
- &mdash; I can do that! - Trenton had pretty good [Ansible](https://docs.ansible.com/ansible/latest/index.html) skills. - 
+
+ &mdash; I can do that! - Trenton had pretty good [Ansible](https://docs.ansible.com/ansible/latest/index.html) skills. -
  Once Elliot is inside, all he has to do is install a bunch of packages on a server, copy over our
  exploit and consumer and run them!
 
@@ -182,5 +182,3 @@ These tasks should be generated in Ansible notation (e.g. look [here](https://do
 on copying files). The script should be named "gen_ansible.py".
 
 Thus, your code should convert Elliot's "todo.yml" into "deploy.yml" following this notation.
-
-**Please leave your feedback [here](https://forms.gle/dfKBUNyBKs9mvcWYA)**
