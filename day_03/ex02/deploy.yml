@@ -1,0 +1,28 @@
+- hosts: server
+  tasks:
+  - name: Install packages
+    - name: Install Python
+      raw: apt -y update && apt install -y python3
+      when: check_python.rc != 0
+    - name: Install packages
+      pip:
+        name:
+        - redis
+        - json
+        - beautifulsoup4
+  - name: 'Copy files'
+    - name: Copy exploit
+      ansible.builtin.copy:
+      src: ../ex00/exploit.py
+      dest: /exploit.py
+    - name: Copy script
+      ansible.builtin.copy:
+      src: ../ex00/script.html
+      dest: /script.html
+    - name: Copy consumer
+      ansible.builtin.copy:
+      src: ../ex00/consumer.py
+      dest: /consumer.py
+  - name: 'Run files'
+    - name: Run scripts
+      raw: 'python exploit.py && python consumer.py -e 4815162342,3133780085'
