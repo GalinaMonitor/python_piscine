@@ -1,6 +1,6 @@
 # Python_piscine
 
-## Tasks are designed to dive into python as quickly as possible
+## Tasks are designed to dive into python as quickly as possible. All Readmes are inside directories.
 
 
 #
