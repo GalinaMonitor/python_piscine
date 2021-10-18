@@ -21,7 +21,7 @@ install_apt_packages = []
 install_pip_packages = []
 for package in packages:
 	install_apt_packages.append({'name': 'Install ' + package, 'apt': ['name=' + package, 'state=latest']})
-install_pip_packages.append({'name': 'Install ' + 'pip_packages', 'pip': {'name': pip_packages}})
+install_pip_packages.append({'name': 'Install pip_packages', 'pip': {'name': pip_packages}})
 install_packages = install_apt_packages + install_pip_packages
 
 # Copy scripts playbook
@@ -41,5 +41,6 @@ result.append(init)
 
 # Final
 file = open('deploy.yml', 'w')
+print(result)
 file.write(yaml.dump(result, sort_keys=False))
 file.close()
